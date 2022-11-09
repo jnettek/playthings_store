@@ -38,7 +38,7 @@ if (error) {
 }
 
 const Wrapper = styled.section`
-  background: var(--clr-grey-10);
+  background: var(--clr-grey-4);
   .featured {
     margin: 4rem auto;
     display: grid;

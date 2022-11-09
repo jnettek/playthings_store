@@ -18,7 +18,7 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 const CheckoutForm = () => {
   const {cart,total_amount,shipping_fee,clearCart} = useCartContext()
   const {myUser} = useUserContext()
-  const hostiry = useHistory()
+  const history = useHistory()
 
   //STRIPE STUFF
   const [succeeded,setSucceeded] = useState(false)
@@ -26,7 +26,7 @@ const CheckoutForm = () => {
   const [processing,setProcessing] = useState('')
   const [disabled, setDisabled] = useState(true)
   const [clientSecret, setClientSecret] = useState('')
-  const stripe = useState()
+  const stripe = useStripe()
   const elements = useElements()
 
 
@@ -95,7 +95,7 @@ const CheckoutForm = () => {
       setSucceeded(true)
       setTimeout(()=>{
         clearCart();
-      
+        history.push('/')
       },1000)
     }
   }

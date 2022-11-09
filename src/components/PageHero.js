@@ -14,20 +14,20 @@ const PageHero = ({title,product}) => {
 }
 
 const Wrapper = styled.section`
-  background: var(--clr-primary-10);
+  background: var(--clr-grey-5);
   width: 100%;
   min-height: 20vh;
   display: flex;
   align-items: center;
 
-  color: var(--clr-primary-1);
+  color: var(--clr-grey-7);
   a {
     color: var(--clr-primary-3);
     padding: 0.5rem;
     transition: var(--transition);
   }
   a:hover {
-    color: var(--clr-primary-1);
+    color: var(--clr-grey-7);
   }
 `
 
