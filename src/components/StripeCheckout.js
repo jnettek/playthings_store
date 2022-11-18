@@ -30,59 +30,60 @@ const CheckoutForm = () => {
   const elements = useElements()
 
 
-  const cardStyle = {
-    style: {
-      base: {
-        color: '#32325d',
-        fontFamily: 'Arial, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': {
-          color: '#32325d',
-        },
-      },
-      invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a',
-      },
-    },
-  }
-
+  
   const createPaymentIntent = async() => {
     try {
-      const data = await axios.post(
+      const {data} = await axios.post(
         '/.netlify/functions/create-payment-intent',
         JSON.stringify({cart,shipping_fee,total_amount})
         )
-      
+        
         setClientSecret(data.clientSecret)
-
-    } catch (error) {
-
-      return{
-        statusCode: 500,
-        body: JSON.stringify({ msg: error.message }),
+        // console.log(data.clientSecret);
+        
+      } catch (error) {
+        
+        return{
+          statusCode: 500,
+          body: JSON.stringify({ msg: error.message }),
+        }
+        
       }
-      
+      // console.log('hello from stripe checkout');
     }
-    console.log('hello from stripe checkout');
-  }
+    
+    useEffect(()=>{
+      createPaymentIntent()
+      // eslint-disable-next-line
+    },[])
 
-  useEffect(()=>{
-    createPaymentIntent()
-    // eslint-disable-next-line
-  },[])
-
-  const handleChange = async (event) => {
+    const cardStyle = {
+      style: {
+        base: {
+          color: '#32325d',
+          fontFamily: 'Arial, sans-serif',
+          fontSmoothing: 'antialiased',
+          fontSize: '16px',
+          '::placeholder': {
+            color: '#32325d',
+          },
+        },
+        invalid: {
+          color: '#fa755a',
+          iconColor: '#fa755a',
+        },
+      },
+    }
+    const handleChange = async (event) => {
     setDisabled(event.empty)
     setError(event.error ? event.error.message : '')
   }
   const handleSubmit = async (ev) => {
     ev.preventDefault()
     setProcessing(true)
-    const payload = await stripe.confirmCardPayment(clientSecret,{
-      payment_method:{
-        card:elements.getElement(CardElement)
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
       }
     })
     if (payload.error) {
@@ -96,7 +97,7 @@ const CheckoutForm = () => {
       setTimeout(()=>{
         clearCart();
         history.push('/')
-      },1000)
+      },6000)
     }
   }
 
@@ -116,7 +117,8 @@ const CheckoutForm = () => {
       </article>
     }
     <form id="payment-form" onSubmit={handleSubmit}>
-      <CardElement id="card-element" 
+      <CardElement 
+      id="card-element" 
       options={cardStyle} 
       onChange={handleChange}
       />

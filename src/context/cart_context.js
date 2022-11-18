@@ -38,7 +38,7 @@ const addToCart = (id,color,amount,product) => {
 // remove item
 const removeItem = (id) => {
   dispatch({ type: REMOVE_CART_ITEM, payload: id })
-  console.log(id);
+  console.log(id)
 }
 // toggle Amount
 const toggleAmount = (id,value) => {
@@ -56,7 +56,7 @@ useEffect(()=> {
 }, [state.cart])
 
   return (
-    <CartContext.Provider value={{ ...state,addToCart,toggleAmount,clearCart }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}>{children}</CartContext.Provider>
   )
 }
 // make sure use
