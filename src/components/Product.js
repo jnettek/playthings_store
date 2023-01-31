@@ -30,7 +30,7 @@ const Wrapper = styled.article`
   img {
     width: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: var(--radius);
     transition: var(--transition);
   }
@@ -39,7 +39,7 @@ const Wrapper = styled.article`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--clr-primary-5);
+    background: var( --clr-black);
     display: flex;
     align-items: center;
     justify-content: center;

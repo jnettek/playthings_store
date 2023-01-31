@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ComfyCloud from '../assets/ComfyCloud.svg'
+import logo from '../assets/logo.svg'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { links } from '../utils/constants'
@@ -16,7 +16,7 @@ const Nav = () => {
     <div className="nav-center">
     <div className="nav-header">
       <Link to='/'>
-      <img src={ComfyCloud} alt="comfy cloud"/>
+      <img src={logo} alt="PlayThings"/>
       </Link>
       <button type="button" className="nav-toggle" onClick={openSidebar}>
         <FaBars/>
@@ -67,7 +67,7 @@ const NavContainer = styled.nav`
   .nav-toggle {
     background: transparent;
     border: transparent;
-    color: var(--clr-primary-5);
+    color: var( --clr-black);
     cursor: pointer;
     svg {
       font-size: 2rem;
@@ -101,7 +101,7 @@ const NavContainer = styled.nav`
         letter-spacing: var(--spacing);
         padding: 0.5rem;
         &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
+          border-bottom: 2px solid var(--clr-black);
         }
       }
     }

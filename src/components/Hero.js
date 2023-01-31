@@ -1,26 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg.jpeg'
-import heroBcg2 from '../assets/hero-bcg-2.jpeg'
+import heroBcg from '../assets/hero-bcg.jpg'
+import heroBcg2 from '../assets/hero-bcg-2.jpg'
 
 const Hero = () => {
   return <Wrapper className='section-center'>
     <article className="content">
       <h1>
-        design your <br />
-        comfort zone
+        Playthings <br />
+        one-of-a-kind
       </h1>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis laboriosam atque a optio perferendis nihil excepturi velit cupiditate voluptatibus quos?
-      </p>
+      Bringing the magic of creatures to life with Playthings' one-of-a-kind figures. </p>
       <Link to='/products' className="btn hero-btn">
         shop now
       </Link>
     </article>
     <article className='img-container'>
-      <img src={heroBcg} alt="nice table" className='main-img'/>
-      <img src={heroBcg2} alt="nice table" className='accent-img'/>
+      <img src={heroBcg} alt="yellow figure" className='main-img'/>
+      <img src={heroBcg2} alt="wooden doll" className='accent-img'/>
     </article>
   </Wrapper>
 }
@@ -79,7 +78,6 @@ const Wrapper = styled.section`
       position: absolute;
       width: 10%;
       height: 80%;
-      background: var(--clr-primary-9);
       bottom: 0%;
       left: -8%;
       border-radius: var(--radius);

@@ -22,7 +22,7 @@ const Wrapper = styled.section`
 
   color: var(--clr-grey-7);
   a {
-    color: var(--clr-primary-3);
+    color: var(--clr-black);
     padding: 0.5rem;
     transition: var(--transition);
   }

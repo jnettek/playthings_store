@@ -22,7 +22,7 @@ if (error) {
   return (
     <Wrapper className='section'>
       <div className='title'>
-        <h2>featured products</h2>
+        <h2>FEATURED PRODUCTS</h2>
         <div className="underline"></div>
       </div>
       <div className="section-center featured">
